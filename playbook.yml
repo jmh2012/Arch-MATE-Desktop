@@ -1,0 +1,7 @@
+---
+
+- name: Set up testing VM
+  hosts: all
+  become: true
+  roles:
+    - common
