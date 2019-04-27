@@ -12,6 +12,8 @@ packages:
   - rsync
   - openssh
 
+de_session: /usr/bin/mate-session
+
 username: jesse
 
 # Password is just 'jesse' hashed.
