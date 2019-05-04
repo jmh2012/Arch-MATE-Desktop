@@ -26,6 +26,7 @@
     state: directory
     owner: "{{ username }}"
     group: "{{ username }}"
+    mode: 0755
 
 - name: Template monitor config for {{ username }}
   template:
@@ -33,3 +34,20 @@
     dest: /home/{{ username }}/.config/monitors.xml
     owner: "{{ username }}"
     group: "{{ username }}"
+    mode: 0755
+
+- name: Template conky config for {{ username }}
+  template:
+    src: dotfiles/conky.conf.j2
+    dest: /home/{{ username }}/.conky.conf
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755
+
+- name: Template conky.desktop for {{ username }}
+  template:
+    src: dotfiles/config/autostart/conky.desktop.j2
+    dest: /home/{{ username }}/.config/autostart/conky.desktop
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755

@@ -7,6 +7,7 @@ packages:
   - mate
   - mate-extra
   - lxdm
+  - conky
   - tmux
   - mlocate
   - rsync
