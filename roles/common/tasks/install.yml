@@ -9,3 +9,6 @@
   pacman:
     name: "{{ packages }}"
     state: present
+
+- name: Install vbox utils with X11 support
+  shell: yes | pacman -S virtualbox-guest-utils

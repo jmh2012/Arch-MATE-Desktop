@@ -44,6 +44,14 @@
     group: "{{ username }}"
     mode: 0755
 
+- name: Ensure autostart directory exists.
+  file:
+    path: /home/{{ username }}/.config/autostart
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755
+
 - name: Template conky.desktop for {{ username }}
   template:
     src: dotfiles/config/autostart/conky.desktop.j2
