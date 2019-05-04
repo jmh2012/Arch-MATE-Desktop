@@ -11,6 +11,7 @@ packages:
   - mlocate
   - rsync
   - openssh
+  - ipython
 
 de_session: /usr/bin/mate-session
 
