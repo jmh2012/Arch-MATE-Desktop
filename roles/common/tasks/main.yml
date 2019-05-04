@@ -1,59 +1,10 @@
 ---
 
-- name: Disable iptables by default
-  service:
-    name: iptables
-    state: stopped
-    enabled: false
+- include_tasks: install.yml
 
-- name: Upgrade all packages
-  pacman:
-    update_cache: yes
-    upgrade: yes
+- include_tasks: config.yml
 
-- name: Install Mate DE and some extras
-  pacman:
-    name: "{{ packages }}"
-    state: present  
+- include_tasks: services.yml
 
-- name: Copy LXDM config template
-  template:
-    src: etc/lxdm/lxdm.conf.j2
-    dest: /etc/lxdm/lxdm.conf
+- include_tasks: user.yml
 
-- name: Start and enable display manager
-  service:
-    name: lxdm
-    state: started
-    enabled: true
-
-- name: updatedb for mlocate
-  shell: updatedb
-  args:
-    executable: /bin/bash
-
-- name: Ensure ssh server is running.
-  service:
-    name: sshd
-    state: started
-    enabled: true
-
-- name: Ensure wheel group exists
-  group:
-    name: wheel
-    state: present
-
-- name: Ensure wheel group can sudo
-  lineinfile:
-    path: /etc/sudoers
-    regexp: '^%wheel'
-    line: '%wheel ALL=(ALL) ALL'
-  validate: 'visudo -cf %s'
-
-- name: Setup user account {{ username }}
-  user:
-    name: "{{ username }}"
-    state: present
-    create_home: yes
-    groups: wheel
-    password: "{{ password }}"

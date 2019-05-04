@@ -1,0 +1,11 @@
+---
+
+- name: Copy LXDM config template
+  template:
+    src: etc/lxdm/lxdm.conf.j2
+    dest: /etc/lxdm/lxdm.conf
+
+- name: updatedb for mlocate
+  shell: updatedb
+  args:
+    executable: /bin/bash

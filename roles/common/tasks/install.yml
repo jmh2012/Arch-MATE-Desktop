@@ -1,0 +1,11 @@
+---
+
+- name: Upgrade all packages
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install Mate DE and some extras
+  pacman:
+    name: "{{ packages }}"
+    state: present

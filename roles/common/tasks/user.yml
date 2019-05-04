@@ -1,0 +1,35 @@
+---
+
+- name: Ensure wheel group exists
+  group:
+    name: wheel
+    state: present
+
+- name: Ensure wheel group can sudo
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) ALL'
+  validate: 'visudo -cf %s'
+
+- name: Setup user account {{ username }}
+  user:
+    name: "{{ username }}"
+    state: present
+    create_home: yes
+    groups: wheel
+    password: "{{ password }}"
+
+- name: Ensure .config exists in {{ username }}'s homedir
+  file:
+    path: /home/{{ username }}/.config
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: Template monitor config for {{ username }}
+  template:
+    src: dotfiles/config/monitors.xml.j2
+    dest: /home/{{ username }}/.config/monitors.xml
+    owner: "{{ username }}"
+    group: "{{ username }}"

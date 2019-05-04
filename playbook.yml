@@ -1,6 +1,6 @@
 ---
 
-- name: Set up testing VM
+- name: Set up Arch VM
   hosts: all
   become: true
   roles:
