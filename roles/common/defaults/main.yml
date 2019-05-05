@@ -1,5 +1,15 @@
 ---
 
+username: jesse
+
+# Password is just 'jesse' hashed.
+password: $6$rounds=656000$mysecretsalt$cvH1ridIiygOvb.KbKhBpyL6PBbs4XgHUZkOemgSolh2Lhmsk8bGDa9qs34yLf05/b0jcEm5EfFqZInqw/4NX/
+shell: fish
+
+
+monitor_width: 1366
+monitor_height: 768
+
 packages:
   - base-devel
   - xorg
@@ -13,13 +23,6 @@ packages:
   - rsync
   - openssh
   - ipython
+  - "{{ shell }}"
 
 de_session: /usr/bin/mate-session
-
-username: jesse
-
-# Password is just 'jesse' hashed.
-password: $6$rounds=656000$mysecretsalt$cvH1ridIiygOvb.KbKhBpyL6PBbs4XgHUZkOemgSolh2Lhmsk8bGDa9qs34yLf05/b0jcEm5EfFqZInqw/4NX/
-
-monitor_width: 1366
-monitor_height: 768

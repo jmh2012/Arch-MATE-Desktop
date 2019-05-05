@@ -18,6 +18,7 @@
     state: present
     create_home: yes
     groups: wheel
+    shell: "/usr/bin/{{ shell }}"
     password: "{{ password }}"
 
 - name: Ensure .config exists in {{ username }}'s homedir
