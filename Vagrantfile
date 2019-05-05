@@ -13,6 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.gui = true
     v.memory = 4096  
     v.cpus = 3
+    v.customize ["modifyvm", :id, "--vram", "128"]
+    v.customize ["modifyvm", :id, "--accelerate3d", "on"]
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end

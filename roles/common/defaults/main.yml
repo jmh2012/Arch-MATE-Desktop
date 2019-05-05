@@ -7,7 +7,7 @@ password: $6$rounds=656000$mysecretsalt$cvH1ridIiygOvb.KbKhBpyL6PBbs4XgHUZkOemgS
 shell: fish
 
 
-monitor_width: 1366
+monitor_width: 1360
 monitor_height: 768
 
 packages:
