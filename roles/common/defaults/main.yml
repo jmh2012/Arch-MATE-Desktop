@@ -25,4 +25,7 @@ packages:
   - ipython
   - "{{ shell }}"
 
-de_session: /usr/bin/mate-session
+lxdm_de_session: /usr/bin/mate-session
+lxdm_gtk_theme: Adwaita
+lxdm_greeter_theme: Industrial
+lxdm_background: /usr/share/backgrounds/mate/desktop/Ubuntu-Mate-Radioactive-no-logo.png
